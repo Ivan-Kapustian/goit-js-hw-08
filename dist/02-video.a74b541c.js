@@ -513,9 +513,7 @@ const onTime = function(data) {
     localStorage.setItem("videoplayer-current-time", data.seconds);
 };
 const currentTime = Number(localStorage.getItem("videoplayer-current-time"));
-player.setCurrentTime(currentTime).then(function(seconds) {}).catch(function(error) {
-    error.name;
-});
+player.setCurrentTime(currentTime || 0);
 player.on("timeupdate", (0, _lodashThrottleDefault.default)(onTime, 1000));
 
 },{"@vimeo/player":"kmmUG","lodash.throttle":"bGJVT","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kmmUG":[function(require,module,exports) {
