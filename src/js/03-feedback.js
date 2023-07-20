@@ -3,6 +3,7 @@ const form = document.querySelector(".feedback-form");
 const emailInput = form.querySelector('input[name="email"]');
 const messageInput = form.querySelector('textarea[name="message"]');
 const storageKey = "feedback-form-state";
+form.addEventListener("input", throttle(inStorage, 500));
 document.addEventListener("DOMContentLoaded", () => {
   const formData = JSON.parse(localStorage.getItem(storageKey));
   if (formData) {
@@ -28,4 +29,3 @@ form.addEventListener("submit", (event) => {
   messageInput.value = "";
   localStorage.removeItem(storageKey);
 });
-form.addEventListener("input", throttle(inStorage, 500));
